@@ -143,6 +143,8 @@ class UniversalImageViewer extends StatelessWidget {
     try {
       return Image.asset(
         path,
+        width: config.width,
+        height: config.height,
         fit: config.fit,
         alignment: config.alignment,
         errorBuilder: (context, error, stackTrace) {
@@ -157,6 +159,8 @@ class UniversalImageViewer extends StatelessWidget {
   Widget _buildNetworkImage() {
     return CachedNetworkImage(
       imageUrl: path,
+      width: config.width,
+      height: config.height,
       fit: config.fit,
       alignment: config.alignment,
       httpHeaders: httpHeaders,

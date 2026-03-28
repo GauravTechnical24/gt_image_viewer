@@ -94,6 +94,8 @@ class UniversalLottieViewer extends StatelessWidget {
   Widget _buildLottieAsset() {
     return Lottie.asset(
       path,
+      width: config.width,
+      height: config.height,
       fit: config.fit,
       alignment: config.alignment,
       repeat: repeat,
@@ -106,6 +108,8 @@ class UniversalLottieViewer extends StatelessWidget {
   Widget _buildLottieNetwork() {
     return Lottie.network(
       path,
+      width: config.width,
+      height: config.height,
       fit: config.fit,
       alignment: config.alignment,
       repeat: repeat,

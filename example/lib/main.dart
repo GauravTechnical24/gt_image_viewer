@@ -98,6 +98,75 @@ class ImageViewerExampleScreen extends StatelessWidget {
             ),
             const SizedBox(height: 24),
 
+            // Custom Sizing Example
+            Text(
+              'Custom Sizing (Fixed Scaling)',
+              style: Theme.of(context).textTheme.titleMedium,
+            ),
+            const SizedBox(height: 8),
+            Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                Column(
+                  children: [
+                    UniversalImageViewer.network(
+                      url: 'https://picsum.photos/200',
+                      config: const ImageContainerConfig(
+                        width: 50,
+                        height: 50,
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                      ),
+                    ),
+                    const Text('50x50'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    UniversalImageViewer.network(
+                      url: 'https://picsum.photos/200',
+                      config: const ImageContainerConfig(
+                        width: 80,
+                        height: 80,
+                        isCircle: true,
+                      ),
+                    ),
+                    const Text('80x80 Circle'),
+                  ],
+                ),
+                Column(
+                  children: [
+                    UniversalImageViewer.network(
+                      url: 'https://picsum.photos/200',
+                      config: const ImageContainerConfig(
+                        width: 120,
+                        height: 60,
+                        fit: BoxFit.fill,
+                        borderRadius: BorderRadius.all(Radius.circular(8)),
+                      ),
+                    ),
+                    const Text('120x60 Fill'),
+                  ],
+                ),
+              ],
+            ),
+            const SizedBox(height: 24),
+
+            // SVG Asset Example
+            Text('SVG Asset', style: Theme.of(context).textTheme.titleMedium),
+            const SizedBox(height: 8),
+            Center(
+              child: UniversalSvgViewer.asset(
+                svgPath: 'assets/sample.svg',
+                config: const ImageContainerConfig(
+                  width: 100,
+                  height: 100,
+                  backgroundColor: Colors.grey,
+                  borderRadius: BorderRadius.all(Radius.circular(12)),
+                ),
+              ),
+            ),
+            const SizedBox(height: 24),
+
             // Cache Management
             Text(
               'Cache Management',

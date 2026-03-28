@@ -94,6 +94,8 @@ class UniversalSvgViewer extends StatelessWidget {
   Widget _buildSvgAsset() {
     return SvgPicture.asset(
       path,
+      width: config.width,
+      height: config.height,
       fit: config.fit,
       alignment: config.alignment,
       colorFilter: color != null
@@ -107,6 +109,8 @@ class UniversalSvgViewer extends StatelessWidget {
   Widget _buildSvgNetwork() {
     return SvgPicture.network(
       path,
+      width: config.width,
+      height: config.height,
       fit: config.fit,
       alignment: config.alignment,
       colorFilter: color != null
