@@ -1,6 +1,6 @@
 name: gt_image_viewer
 description: A universal Flutter image viewer package supporting network images with caching, SVG rendering, and Lottie animations with configurable containers.
-version: 1.0.0
+version: 1.3.0
 homepage: https://github.com/GauravTechnical24/gt_image_viewer.git
 repository: https://github.com/GauravTechnical24/gt_image_viewer.git
 issue_tracker: https://github.com/GauravTechnical24/gt_image_viewer/issues
@@ -13,18 +13,19 @@ topics:
   - widgets
 
 environment:
-  sdk: ^3.11.0
-  flutter: ">=3.0.0"
+  sdk: ^3.13.0
+  flutter: ">=3.47.0"
 
 dependencies:
   flutter:
-    sdk: flutter  
-  flutter_cache_manager: ^3.4.1
-  cached_network_image: ^3.4.1
-  lottie: ^3.3.2
-  flutter_svg: ^2.2.4
+    sdk: flutter
+  flutter_cache_manager: ^3.4.5
+  cached_network_image: ^4.0.4
+  lottie: ^3.6.1
+  flutter_svg: ^2.3.0
 
 dev_dependencies:
   flutter_test:
     sdk: flutter
   flutter_lints: ^6.0.0
+

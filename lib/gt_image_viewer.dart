@@ -4,19 +4,28 @@
 /// - Cached network image loading with automatic caching
 /// - SVG rendering for asset and network sources
 /// - Lottie animation support
-/// - Configurable container styling (border, shadow, shape)
+/// - Material, Cupertino (iOS/macOS), and platform-adaptive UI modes
+/// - Configurable container styling (border, shadow, shape, radius)
 /// - Circular image support
 /// - Custom error and loading widgets
 library;
 
-// Universal Viewers
-export 'image_handler/universal_image_viewer.dart' show UniversalImageViewer;
-export 'image_handler/universal_svg_viewer.dart' show UniversalSvgViewer;
-export 'image_handler/universal_lottie_viewer.dart' show UniversalLottieViewer;
+// Core Configuration & Cache
+export 'src/core/cache_manager_helper.dart' show CacheManagerHelper;
+export 'src/core/image_config_enum.dart' show ImageDesignSystem, ImageSource;
+export 'src/core/image_viewer_config.dart' show ImageContainerConfig;
 
-// Configuration
-export 'image_handler/image_viewer_config.dart' show ImageContainerConfig;
-export 'image_handler/image_config_enum.dart' show ImageSource;
+// Adaptive Universal Viewers
+export 'src/adaptive/adaptive_image_viewer.dart' show UniversalImageViewer;
+export 'src/adaptive/adaptive_lottie_viewer.dart' show UniversalLottieViewer;
+export 'src/adaptive/adaptive_svg_viewer.dart' show UniversalSvgViewer;
 
-// Cache Management
-export 'image_handler/cache_manager_helper.dart' show CacheManagerHelper;
+// Material Design Viewers
+export 'src/material/material_image_viewer.dart' show MaterialImageViewer;
+export 'src/material/material_lottie_viewer.dart' show MaterialLottieViewer;
+export 'src/material/material_svg_viewer.dart' show MaterialSvgViewer;
+
+// Cupertino (iOS/macOS) Viewers
+export 'src/cupertino/cupertino_image_viewer.dart' show CupertinoImageViewer;
+export 'src/cupertino/cupertino_lottie_viewer.dart' show CupertinoLottieViewer;
+export 'src/cupertino/cupertino_svg_viewer.dart' show CupertinoSvgViewer;

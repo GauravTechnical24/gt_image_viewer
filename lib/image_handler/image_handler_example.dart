@@ -1,11 +1,15 @@
-import 'package:flutter/material.dart';
-import 'package:gt_image_viewer/image_handler/cache_manager_helper.dart';
-import 'package:gt_image_viewer/image_handler/image_viewer_config.dart';
-import 'package:gt_image_viewer/image_handler/universal_image_viewer.dart';
-import 'package:gt_image_viewer/image_handler/universal_lottie_viewer.dart';
-import 'package:gt_image_viewer/image_handler/universal_svg_viewer.dart';
+/// Legacy interactive example screen.
+library;
 
+import 'package:flutter/material.dart';
+import 'package:gt_image_viewer/gt_image_viewer.dart';
+
+/// Interactive sample screen demonstrating [gt_image_viewer] capabilities.
+///
+/// Deprecated: Refer to the standalone example application located in `example/`.
+@Deprecated('Use example/lib/main.dart instead.')
 class ImageHandlerExample extends StatefulWidget {
+  /// Creates an image handler example widget.
   const ImageHandlerExample({super.key});
 
   @override
@@ -17,16 +21,13 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
   final String _svgUrl =
       'https://dev.w3.org/SVG/tools/svgweb/samples/svg-files/android.svg';
 
-  // Note: Replace with actual asset paths in your project
   final String _assetImage = 'assets/images/placeholder.png';
   final String _lottieUrl =
-      'https://assets8.lottiefiles.com/packages/lf20_abc.json'; // Example Lottie URL
+      'https://assets8.lottiefiles.com/packages/lf20_abc.json';
 
   @override
   void initState() {
     super.initState();
-    // Initialize CacheManager with custom config if needed
-    // Best practice is to do this in main.dart
     CacheManagerHelper().initialize(
       cacheKey: 'my_custom_cache_key',
       stalePeriod: const Duration(days: 3),
@@ -50,7 +51,7 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
               messenger.showSnackBar(
                 const SnackBar(content: Text('Cache Cleared!')),
               );
-              setState(() {}); // Rebuild to show reloading
+              setState(() {});
             },
           ),
         ],
@@ -67,7 +68,6 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
               config: const ImageContainerConfig(
                 height: 200,
                 width: double.infinity,
-
                 borderRadius: BorderRadius.all(Radius.circular(12)),
                 boxShadow: [
                   BoxShadow(
@@ -82,7 +82,6 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
                 child: Icon(Icons.error, color: Colors.red),
               ),
             ),
-
             const SizedBox(height: 20),
             _buildSectionTitle('Circular Profile Image'),
             const SizedBox(height: 10),
@@ -100,7 +99,6 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
                 ),
               ),
             ),
-
             const SizedBox(height: 20),
             _buildSectionTitle('SVG Network'),
             const SizedBox(height: 10),
@@ -112,9 +110,8 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
                 backgroundColor: Colors.grey,
                 borderRadius: BorderRadius.all(Radius.circular(8)),
               ),
-              color: Colors.green, // Override SVG color
+              color: Colors.green,
             ),
-
             const SizedBox(height: 20),
             _buildSectionTitle('Circular SVG with Border'),
             const SizedBox(height: 10),
@@ -140,53 +137,6 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
                 color: Colors.green,
               ),
             ),
-
-            const SizedBox(height: 20),
-            _buildSectionTitle('Multiple Circular Images'),
-            const SizedBox(height: 10),
-            Row(
-              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-              children: [
-                UniversalImageViewer.network(
-                  url: 'https://picsum.photos/150',
-                  config: const ImageContainerConfig(
-                    height: 80,
-                    width: 80,
-                    isCircle: true,
-                    fit: BoxFit.fill,
-                    backgroundColor: Colors.red,
-                    border: Border.fromBorderSide(
-                      BorderSide(color: Colors.red, width: 1),
-                    ),
-                  ),
-                ),
-                UniversalImageViewer.network(
-                  url: 'https://picsum.photos/160',
-                  config: const ImageContainerConfig(
-                    height: 80,
-                    width: 80,
-                    isCircle: true,
-                    backgroundColor: Colors.orange,
-                    border: Border.fromBorderSide(
-                      BorderSide(color: Colors.orange, width: 2),
-                    ),
-                  ),
-                ),
-                UniversalImageViewer.network(
-                  url: 'https://picsum.photos/170',
-                  config: const ImageContainerConfig(
-                    height: 80,
-                    width: 80,
-                    isCircle: true,
-                    backgroundColor: Colors.purple,
-                    border: Border.fromBorderSide(
-                      BorderSide(color: Colors.purple, width: 2),
-                    ),
-                  ),
-                ),
-              ],
-            ),
-
             const SizedBox(height: 20),
             _buildSectionTitle('Asset Image (Placeholder)'),
             const SizedBox(height: 10),
@@ -199,7 +149,6 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
               ),
               errorWidget: const Text('Asset not found'),
             ),
-
             const SizedBox(height: 20),
             _buildSectionTitle('Lottie Network'),
             const SizedBox(height: 10),
@@ -208,7 +157,6 @@ class _ImageHandlerExampleState extends State<ImageHandlerExample> {
               config: const ImageContainerConfig(height: 150, width: 150),
               errorWidget: const Text('Lottie Error'),
             ),
-
             const SizedBox(height: 20),
             _buildSectionTitle('Prefetch Image'),
             const SizedBox(height: 10),
